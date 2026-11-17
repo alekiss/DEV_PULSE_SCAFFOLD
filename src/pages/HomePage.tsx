@@ -1,9 +1,13 @@
 import { Alert, Stack } from "@mui/material";
 import PageHeading from "../components/PageHeading";
+import SearchBar from "../components/SearchBar";
 
 export default function HomePage() {
   return (
     <Stack spacing={3}>
+
+      <SearchBar onChange={() => {}} onSearch={() => {}} value="Teste" />
+
       <PageHeading
         eyebrow="TECH RADAR · 2026"
         title="O que está acontecendo no mundo da tecnologia?"

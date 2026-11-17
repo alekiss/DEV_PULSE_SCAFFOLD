@@ -15,8 +15,10 @@ type FavoritesProviderProps = { children: ReactNode };
 
 export function FavoritesProvider({ children }: FavoritesProviderProps) {
   const [favorites, setFavorites] = useState<NewsHit[]>([]);
+
   const isFavorite = (id: string) =>
     favorites.some((item) => item.objectID === id);
+
   const toggleFavorite = (news: NewsHit) =>
     setFavorites((current) => {
       const exists = current.some((item) => item.objectID === news.objectID);
@@ -24,6 +26,7 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
         ? current.filter((item) => item.objectID !== news.objectID)
         : [...current, news];
     });
+    
   return (
     <FavoritesContext.Provider
       value={{ favorites, isFavorite, toggleFavorite }}
